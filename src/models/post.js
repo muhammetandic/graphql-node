@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
   title: String,
   content: String,
   authorId: ObjectId,
-  votes: Number
+  votes: Number,
 });
 
 export default mongoose.model("Post", postSchema);

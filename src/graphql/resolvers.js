@@ -1,5 +1,18 @@
-import { createAuthor, deleteAuthor, getAuthor, getAuthors, updateAuthor } from "../services/author.service.js";
-import { createPost, deletePost, getPost, getPosts, getPostsByAuthorId, updatePost } from "../services/post.service.js";
+import {
+  createAuthor,
+  deleteAuthor,
+  getAuthor,
+  getAuthors,
+  updateAuthor,
+} from "../services/author.service.js";
+import {
+  createPost,
+  deletePost,
+  getPost,
+  getPosts,
+  getPostsByAuthorId,
+  updatePost,
+} from "../services/post.service.js";
 
 let posts = [
   { id: 1, authorId: 1, title: "Introduction to GraphQL", votes: 2 },
@@ -19,14 +32,14 @@ export default {
   Author: {
     posts(parent) {
       return getPostsByAuthorId(parent._id);
-    }
+    },
   },
 
   Mutation: {
     createAuthor: (parent, newAuthor) => {
       createAuthor(newAuthor);
       let result = {
-        success: true
+        success: true,
       };
       return result;
     },
@@ -34,7 +47,7 @@ export default {
     updateAuthor: (parent, editedAuthor) => {
       updateAuthor(editedAuthor);
       const result = {
-        success: true
+        success: true,
       };
       return result;
     },
@@ -47,7 +60,7 @@ export default {
     createPost: (parent, newPost) => {
       createPost(newPost);
       let result = {
-        success: true
+        success: true,
       };
       return result;
     },
@@ -55,17 +68,17 @@ export default {
     updatePost: (parent, editedPost) => {
       updatePost(editedPost);
       let result = {
-        success: true
+        success: true,
       };
-      return result
+      return result;
     },
 
     deletePost: (parent, { id }) => {
-      deletePost(id)
+      deletePost(id);
       let result = {
-        success: true
+        success: true,
       };
       return result;
-    }
-  }
-}
+    },
+  },
+};

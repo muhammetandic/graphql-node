@@ -10,20 +10,20 @@ const server = new ApolloServer({
   introspection: true,
   typeDefs,
   resolvers,
-  formatError: error => {
-    return error
+  formatError: (error) => {
+    return error;
   },
   context: ({ req, res }) => {
-    return { req, res }
-  }
+    return { req, res };
+  },
 });
 
 mongoose
   .connect("mongodb://localhost/Test", { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected..."))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 await server.start();
 server.applyMiddleware({ app, path: "/graphql" });
 

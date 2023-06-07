@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express"
+import { gql } from "apollo-server-express";
 const typeDefs = gql`
   type Author {
     _id: String!
@@ -50,5 +50,5 @@ const typeDefs = gql`
     updatePost(post: PostData!): Response
     deletePost(id: String!): Response
   }
-`
-export default typeDefs
+`;
+export default typeDefs;
